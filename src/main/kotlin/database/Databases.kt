@@ -12,10 +12,10 @@ import ru.property.UserService
 
 fun Application.configureDatabases() {
     val database = Database.connect(
-        url = "jdbc:postgresql://dpg-d7gjo9vlk1mc7396sst0-a.oregon-postgres.render.com:5432/test_db_7b6s?sslmode=require",
-        user = "test_user",
-        driver = "org.postgresql.Driver",
-        password = "NopjgBIkF3cSWl1kGZcHZUbFSKphGaT8",
+        url = System.getenv("DB_URL"),
+        user = System.getenv("DB_USER"),
+        driver = System.getenv("DB_DRIVER") ?: "org.postgresql.Driver",
+        password = System.getenv("DB_PASSWORD"),
     )
     val userService = UserService(database)
     routing {
