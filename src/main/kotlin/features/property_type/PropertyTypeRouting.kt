@@ -7,7 +7,7 @@ import io.ktor.server.routing.routing
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import ru.property.database.PropertyTypes
-import ru.property.database.`property-type`.PropertyTypeDTO
+import ru.property.database.property_type.PropertyTypeDTO
 
 
 fun Application.configurePropertyTypeRouting() {

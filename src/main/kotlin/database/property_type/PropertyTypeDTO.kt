@@ -1,4 +1,4 @@
-package ru.property.database.`property-type`
+package ru.property.database.property_type
 
 import kotlinx.serialization.Serializable
 
