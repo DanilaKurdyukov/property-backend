@@ -15,5 +15,7 @@ data class PropertyResponseDTO(
     val description: String,
     val price: Double,
     val type: String,
-    val status: String
+    val status: String,
+    val typeId: Int,
+    val statusId: Int
 )

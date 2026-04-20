@@ -30,7 +30,9 @@ fun Application.configurePropertyRouting() {
                             description = row[Properties.description],
                             price = row[Properties.price].toDouble(),
                             type = row[PropertyTypes.name],
-                            status = row[PropertyStatuses.name]
+                            status = row[PropertyStatuses.name],
+                            typeId = row[PropertyTypes.id],
+                            statusId = row[PropertyStatuses.id]
                         )
 
                     }
