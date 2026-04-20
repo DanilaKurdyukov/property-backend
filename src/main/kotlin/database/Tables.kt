@@ -39,7 +39,7 @@ object Properties : Table("properties") {
 
 object PropertyPhotos : Table("property_photos") {
     val id = integer("id").autoIncrement()
-    val propertyId = integer("property_id")
+    val propertyId = reference("property_id", Properties.id)
     val photoUrl = varchar("photo_url", 1024)
     val isMain = bool("is_main")
 
