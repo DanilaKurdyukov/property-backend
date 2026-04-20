@@ -17,5 +17,6 @@ data class PropertyResponseDTO(
     val type: String,
     val status: String,
     val typeId: Int,
-    val statusId: Int
+    val statusId: Int,
+    val photoUrl: String
 )

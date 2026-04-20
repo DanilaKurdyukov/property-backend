@@ -7,6 +7,7 @@ import io.ktor.server.routing.routing
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import ru.property.database.Properties
+import ru.property.database.PropertyPhotos
 import ru.property.database.PropertyStatuses
 import ru.property.database.PropertyTypes
 import ru.property.database.properties.PropertyResponseDTO
@@ -15,8 +16,9 @@ fun Application.configurePropertyRouting() {
     routing {
         get("/properties") {
             val result = transaction {
-                (Properties innerJoin PropertyTypes innerJoin PropertyStatuses)
+                (Properties innerJoin PropertyTypes innerJoin PropertyStatuses leftJoin PropertyPhotos)
                     .selectAll()
+                    .where { PropertyPhotos.isMain eq true }
                     .map { row ->
                         PropertyResponseDTO(
                             id = row[Properties.id],
@@ -32,7 +34,8 @@ fun Application.configurePropertyRouting() {
                             type = row[PropertyTypes.name],
                             status = row[PropertyStatuses.name],
                             typeId = row[PropertyTypes.id],
-                            statusId = row[PropertyStatuses.id]
+                            statusId = row[PropertyStatuses.id],
+                            photoUrl = row[PropertyPhotos.photoUrl]
                         )
 
                     }
