@@ -42,4 +42,6 @@ object PropertyPhotos : Table("property_photos") {
     val propertyId = integer("property_id")
     val photoUrl = varchar("photo_url", 1024)
     val isMain = bool("is_main")
+
+    override val primaryKey = PrimaryKey(PropertyPhotos.id)
 }

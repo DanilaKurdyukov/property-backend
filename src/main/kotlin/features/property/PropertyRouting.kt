@@ -16,7 +16,7 @@ fun Application.configurePropertyRouting() {
     routing {
         get("/properties") {
             val result = transaction {
-                (Properties innerJoin PropertyTypes innerJoin PropertyStatuses leftJoin PropertyPhotos)
+                (Properties innerJoin PropertyTypes innerJoin PropertyStatuses innerJoin PropertyPhotos)
                     .selectAll()
                     .where { PropertyPhotos.isMain eq true }
                     .map { row ->
