@@ -69,4 +69,5 @@ object Clients: Table("clients") {
     val budgetMin = decimal("budget_min", precision = 12, scale = 2)
     val budgetMax = decimal("budget_max", precision = 12, scale = 2)
     val interest = reference("interest", PropertyTypes.id)
+    val photo_url = varchar("photo_url", 1024)
 }

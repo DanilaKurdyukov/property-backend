@@ -33,6 +33,7 @@ fun Application.configureClientRouting() {
                             budgetMax = row[Clients.budgetMax].toDouble(),
                             interest = row[Clients.interest],
                             interestName = row[PropertyTypes.name],
+                            photoUrl = row[Clients.photo_url]
                         )
                     }
             }

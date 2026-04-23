@@ -17,5 +17,6 @@ data class ClientResponseDTO(
     val budgetMin: Double,
     val budgetMax: Double,
     val interest: Int,
-    val interestName: String
+    val interestName: String,
+    val photoUrl: String
 )
