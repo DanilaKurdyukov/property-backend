@@ -1,6 +1,8 @@
 package ru.property.database
 
 import org.jetbrains.exposed.sql.Table
+import org.jetbrains.exposed.sql.javatime.date
+
 
 object PropertyTypes : Table("property_types") {
     val id = integer("id").autoIncrement()
@@ -44,4 +46,27 @@ object PropertyPhotos : Table("property_photos") {
     val isMain = bool("is_main")
 
     override val primaryKey = PrimaryKey(PropertyPhotos.id)
+}
+
+object PassportData: Table("passport_data") {
+    val id = integer("id").autoIncrement()
+    val series = varchar("series", 4)
+    val number = varchar("number", 6)
+    val givenAt = date("given_at")
+
+    override val primaryKey = PrimaryKey(id)
+}
+
+object Clients: Table("clients") {
+    val id = integer("id").autoIncrement()
+    val firstName = varchar("first_name", 50)
+    val middleName = varchar("middle_name", 50)
+    val lastName = varchar("last_name", 50)
+    val phone = varchar("phone", 21)
+    val email = varchar("email", 50)
+    val passportDataId = reference("passport_data_id", PassportData.id)
+    val address = varchar("address", 100)
+    val budgetMin = decimal("budget_min", precision = 12, scale = 2)
+    val budgetMax = decimal("budget_max", precision = 12, scale = 2)
+    val interest = reference("interest", PropertyTypes.id)
 }

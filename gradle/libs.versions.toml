@@ -17,6 +17,7 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+java-time = { module = "org.jetbrains.exposed:exposed-java-time", version.ref = "exposed"}
 
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 hikari = { module = "com.zaxxer:HikariCP", version.ref = "hikari" }

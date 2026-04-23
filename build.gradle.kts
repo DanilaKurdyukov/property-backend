@@ -27,6 +27,7 @@ dependencies {
 
     implementation(libs.postgres)
     implementation(libs.hikari)
+    implementation(libs.java.time)
 
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
